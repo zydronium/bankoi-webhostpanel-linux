@@ -1,0 +1,12 @@
+<?php
+$cmd="cat `ls /etc/*release`";
+$ver=`$cmd`;
+/*$cmd="cat $ver";
+$ver=`$cmd`;*/
+echo $ver;
+$cmd="cat /proc/version | cut -d \" \" -f1-3";
+$ker_ver=`$cmd`;
+echo $ker_ver;
+
+
+?>

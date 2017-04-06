@@ -1,0 +1,107 @@
+body, th, td, p {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	font-weight: normal;
+	color: #000000;
+}
+
+body {
+  background-color: #ffffff; 
+}
+
+form {
+  margin: 0;
+}
+
+a:link {
+  color: #0240a3;
+}
+
+a:visited {
+  color: #0240a3;
+}
+
+a:active {
+  color: #000000;
+}
+
+
+/* ---------- common buttons --------- */
+
+input.commonButton
+{
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10px;
+/* font-weight: bold; 
+  text-transform: uppercase; */
+  color: #000000;
+  background-color: #eeeeee;
+  background-image: url(../images/btn_bg.gif);
+  border: none;
+}
+
+
+input.searchButton
+{
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  width: 115;
+  height: 22;
+  color: #000000;
+  background-color: #eeeeee;
+  background-image: url(../images/btn_search_bg.gif);
+  border: none;
+}
+
+input.upButton
+{
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  width: 115;
+  height: 22;
+  color: #000000;
+  background-color: #eeeeee;
+  background-image: url(../images/btn_uplevel_bg.gif);
+  border: none;
+}
+
+input.rebootButton
+{
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  width: 115;
+  height: 22;
+  color: #000000;
+  background-color: #eeeeee;
+  background-image: url(../images/btn_restart_bg.gif);
+  border: none;
+}
+
+
+input.shutdownButton
+{
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  width: 115;
+  height: 22;
+  color: #000000;
+  background-color: #eeeeee;
+  background-image: url(../images/btn_shutdown_bg.gif);
+  border: none;
+}
+
+
+input[disabled].commonButton,
+input[disabled].commonButton:hover,
+input[disabled].commonButton:active {
+  text-decoration: none;
+  font-weight: bold;
+  color: #999999;
+  border: 2px solid #cccccc;
+  background-color: #eeeeee;
+}
+
+input[disabled] {
+  color: #999999;
+  background-color: #eeeeee;
+}  

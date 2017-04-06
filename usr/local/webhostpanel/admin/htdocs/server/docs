@@ -1,0 +1,402 @@
+HOWTO get Frontpage 2000 working with Apache 1.3.19 and 1.3.22
+From: Jeff Schaller and Kevin Gonyo
+Date: 15 Nov 2001
+Time: 11:18:43
+Remote Name: 209.130.177.141
+
+
+Comments
+We got it working! And here's how! Apologies for the size, but we wanted to post an explicit step-by-step procedure. Your layout and assumptions may differ, but you should be able to make the appropriate changes. 
+
+Configuring FrontPage 2000 Extensions on Linux OS & Apache Web Server 
+
+Background assumptions:
+1. User to own Frontpage files: www
+2. Group to own Frontpage files: www
+3. Apache install directory: (custom): /var/www/apache
+4. Frontpage install directory: (default): /usr/local/frontpage
+5. Frontpage version 4.0 ("2000 extensions")
+6. Apache version: 1.3.19
+7. Root access is enabled with sudo
+8. Tar files are located in /var/www/tars/{apache,fp}
+
+
+***
+For Apache 1.3.22, two additional changes need to be made:
+1. the patch doesn't apply cleanly; add this line before "char *filename;" in src/include/httpd.h around line 800:
+
+char *execfilename;
+
+do this step after running the patch command.
+
+2. apache wouldn't start correctly until we changed this line in conf/httpd.conf from:
+Group "#-1"
+to:
+Group nogroup
+Adjust the user and group for your site.
+***
+
+# Create the user/group
+
+$ sudo adduser www
+(On Linux, this also creates a group of the same name)
+
+# remove any previous instance of apache
+
+$ sudo /var/www/apache/bin/apachectl stop
+/var/www/apache/bin/apachectl stop: httpd stopped
+$ sudo rm -rf /var/www/apache
+$ sudo mkdir /var/www/apache
+
+# remove any previous frontpage install
+
+$ sudo rm -rf /usr/local/frontpage
+
+# remove any extensions that were installed in the web root
+
+$ sudo rm -rf /var/www/apache/htdocs/_vti*
+
+# extract apache
+
+$ cd /var/www/tars/apache
+$ sudo rm -rf apache_1.3.19
+$ sudo tar xf apache_1.3.19.tar
+
+# copy and apply frontpage patch
+
+$ sudo cp ../fp/frontpage/version4.0/apache-fp/fp-* apache_1.3.19
+$ cd apache_1.3.19
+$ sudo patch -p0 < fp-*
+
+# configure apache with custom prefix and with frontpage module
+
+$ sudo ./configure --prefix=/var/www/apache --add-module=mod_frontpage.c 
+
+# compile and install apache
+
+$ sudo make && sudo make install
+
+# make changes to /var/www/apache/conf/httpd.conf
+
+- change Port from 8080 to 80 (this step didn't seem to be necessary)
+
+- change AllowOverride from "None" to "All" all four places
+
+- Add the following lines:
+ResourceConfig /dev/null 
+AccessConfig /dev/null 
+
+- Removed double quotes ("") from 7 lines
+Old lines look like this:
+ServerRoot "/var/www/apache"
+DocumentRoot "/var/www/apache/htdocs"
+<Directory "/var/www/apache/htdocs">
+Alias /icons/ "/var/www/apache/icons/"
+<Directory "/var/www/apache/icons">
+ScriptAlias /cgi-bin/ "/var/www/apache/cgi-bin/"
+<Directory "/var/www/apache/cgi-bin">
+
+New lines look like this:
+
+ServerRoot /var/www/apache
+DocumentRoot /var/www/apache/htdocs
+<Directory /var/www/apache/htdocs>
+Alias /icons/ /var/www/apache/icons/
+<Directory /var/www/apache/icons>
+ScriptAlias /cgi-bin/ /var/www/apache/cgi-bin/
+<Directory /var/www/apache/cgi-bin>
+
+# start apache
+
+$ sudo /var/www/apache/bin/apachectl start
+
+# surf to http://<hostname> that apache is working
+
+# install Frontpage
+
+$ cd /var/www/tars/fp/frontpage/version4.0
+$ sudo ./fp_install.sh
+
+Step 1. Setting Up Installation Environment
+
+Setting umask 002
+Logged in as root.
+
+fp_install.sh
+
+Revision: 1.1 
+Date: 1998/12/02 21:58:21 
+
+This script will step the user through upgrading existing and installing new servers and webs. As with any software installation, a backup should be done before continuing. It is recommended that the FrontPage installation directory, server configuration file directory, and all web content be backed up before continuing with this installation. 
+
+Are you satisfied with your backup of the system (y/n) [N]? y 
+
+Directory /usr/local exists.
+Root has necessary access to /usr/local. 
+
+Where would you like to install the FrontPage Extensions. If you select a location other than /usr/local/frontpage/ then a symbolic link will be created from /usr/local/frontpage/ to the location that is chosen. 
+
+FrontPage Extensions directory [/usr/local/frontpage/]: 
+Creating /usr/local/frontpage
+Directory /usr/local/frontpage has been created.
+Directory /usr/local/frontpage chmoded to 755.
+
+Step 2. Untarring the Extensions and Checking Protections 
+
+Version 4.0 FrontPage Server Extensions not found.
+Looking for tar file...
+Platform is linux.
+Cannot find the FrontPage Extensions tar file in /var/www/tars/fp/frontpage/version4.0/.
+Which directory is the file located in (X to cancel)? /var/www/tars/fp/fp40.linux.tar
+Untarring file /var/www/tars/fp/fp40.linux.tar into /usr/local...
+echo Step 3. Upgrading/Installing the extensions
+
+Checking for existing web servers to upgrade...
+No existing web servers found to upgrade.
+
+Note: If you have not installed the root web then you need to do it now.
+
+Do you want to install a root web (y/n) [Y]? y
+
+Installing the root web...
+
+Server config filename: /var/www/apache/conf/httpd.conf
+
+FrontPage Administrator's user name: webadmin
+Unix user name of the owner of this new web:[nobody] www
+
+Unix group of this new web:[nogroup] www
+
+1. ncsa
+2. apache
+3. apache-fp
+4. netscape-fasttrack
+5. netscape-enterprise
+6. stronghold
+What type of Server is this: 2
+
+Installing root web into port 80...
+
+installing server / on port 80
+
+Will chown web to www as part of install.
+Will chgrp web to www as part of install.
+/usr/local/frontpage/version4.0/bin/fpsrvadm.exe: Symbol `__vt_8iostream.3ios' has different size in shared object, consider re-linking
+/usr/local/frontpage/version4.0/bin/fpsrvadm.exe: Symbol `__vt_3ios' has different size in shared object, consider re-linking
+/usr/local/frontpage/version4.0/bin/fpsrvadm.exe: Symbol `__vt_12ostdiostream.3ios' has different size in shared object, consider re-linking
+/usr/local/frontpage/version4.0/bin/fpsrvadm.exe: Symbol `__vt_7istream.3ios' has different size in shared object, consider re-linking
+/usr/local/frontpage/version4.0/bin/fpsrvadm.exe: Symbol `__vt_8ofstream.3ios' has different size in shared object, consider re-linking
+/usr/local/frontpage/version4.0/bin/fpsrvadm.exe: Symbol `__vt_7fstream.3ios' has different size in shared object, consider re-linking
+/usr/local/frontpage/version4.0/bin/fpsrvadm.exe: Symbol `__vt_10ostrstream.3ios' has different size in shared object, consider re-linking
+/usr/local/frontpage/version4.0/bin/fpsrvadm.exe: Symbol `__vt_12istdiostream.3ios' has different size in shared object, consider re-linking
+/usr/local/frontpage/version4.0/bin/fpsrvadm.exe: Symbol `__vt_7ostream.3ios' has different size in shared object, consider re-linking
+/usr/local/frontpage/version4.0/bin/fpsrvadm.exe: Symbol `__vt_8ifstream.3ios' has different size in shared object, consider re-linking
+/usr/local/frontpage/version4.0/bin/fpsrvadm.exe: Symbol `__vt_12strstreambuf' has different size in shared object, consider re-linking
+/usr/local/frontpage/version4.0/bin/fpsrvadm.exe: Symbol `__vt_13strstreambase.3ios' has different size in shared object, consider re-linking
+
+Starting install, port: 80, web: "root web"
+
+Password for user "webadmin": 
+Confirm password: 
+Creating web http://
+Chowning Content in service root web
+Chmoding Extensions in service root web
+Install completed.
+
+1. LATIN1 (ISO 8859-1)
+2. LATIN2 (ISO 8859-2)
+3. EUCJP (Japanese EUC)
+4. EUCKR (Korean EUC)
+Which local character encoding does your system support: [1] 1
+
+1. English
+2. French
+3. German
+4. Italian
+5. Japanese
+6. Spanish
+What should the default language be: [1] 1
+
+Setting /usr/local/frontpage/version4.0/frontpage.cnf to:
+
+defaultLanguage:en
+localCharEncoding:latin1
+
+Moving /usr/local/frontpage/version4.0/frontpage.cnf to 
+/usr/local/frontpage/version4.0/frontpage.cnf.orig
+
+Creating and modifying new /usr/local/frontpage/version4.0/frontpage.cnf...
+
+Install new sub/per-user webs now (y/n) [Y]? n
+For details on how to upgrade servers manually, please see
+the Server Extension Resource Kit (SERK), located in
+/usr/local/frontpage/version4.0/serk
+
+Installing Virtual Webs..
+
+Do you want to install Virtual Webs (y/n) [Y]? n
+
+Installation completed! Exiting...
+
+# Test to see if Server Extensions installed properly... 
+# Open FrontPage Client, you should be able to access the Root web and create
+# new files/folders, but not create new subwebs or accounts
+
+# If you want the ability to manage the FrontPage webs (create subwebs, etc)
+# via the FrontPage client, you need to run the change_server.sh script
+
+#########################################
+###
+# Change_server.sh Patch Instructions
+
+# Shut down Apache Web Server
+
+sudo /var/www/apache/bin/apachectl stop
+
+# Copy your compiled httpd binary to the following directory...
+# (this fools the change_server script, but is necessary)
+
+sudo cp /var/www/apache/bin/httpd /usr/local/frontpage/version4.0/apache-fp/httpd
+sudo cp /var/www/apache/bin/httpd /usr/local/frontpage/version4.0/apache-fp/httpd.Compat
+
+# run the script
+
+cd /var/www/tars/fp/frontpage/version4.0
+sudo ./change_server.sh
+
+Checking user environment...
+Logged in as root.
+Setting umask to 002
+
+change_server.sh
+
+Revision: 1.30 
+Date: 2000/04/06 
+
+This script will step the user through upgrading existing and installing new servers and webs. As with any software installation, a backup should be done before continuing. It is recommended that the FrontPage installation directory, server configuration file directory, and all web content be backed up before continuing with this installation.
+
+Are you satisfied with your backup of the system (y/n) [N]? y
+
+Chowning /usr/local/frontpage/version4.0/apache-fp to root...
+Chmoding /usr/local/frontpage/version4.0/apache-fp to 711...
+Chowning /usr/local/frontpage/version4.0/apache-fp/_vti_bin to root...
+Chmoding /usr/local/frontpage/version4.0/apache-fp/_vti_bin to 755...
+Chowning /usr/local/frontpage/version4.0/apache-fp/_vti_bin/fpexe to root...
+Setting /usr/local/frontpage/version4.0/apache-fp/_vti_bin/fpexe to SUID...
+
+Where is the current apache daemon located: [/usr/local/apache/sbin/httpd] /var/www/apache/bin/httpd
+Selected server uses COMPATIBLE directory structure: /usr/local/frontpage/version4.0/apache-fp/httpd.Compat will be installed.
+
+Currently running Apache/1.3.19 FrontPage/ Binary file (standard input) matches. ./change_server.sh: eval: line 2: syntax error: unexpected end of file
+
+Preparing for upgrade to Apache/1.3.19 FrontPage/Binary file (standard input) matches...
+
+The Apache daemon is going to be replaced with a stock Apache containing the FrontPage patch and may result in the loss of any custom modules that have been compiled into the daemon that is currently in use.
+
+Are you sure that you want to do this (y/n) [N]? y
+
+Upgrading FrontPage Webs...
+
+The file /usr/local/frontpage/version4.0/change_server_results.txt will contain Success/Fail status for the upgrades. When the upgrade has completed, you should examine this file to make sure that all of the upgrades were successful.
+
+Hit enter to continue
+
+Upgrading using configuration file: /usr/local/frontpage/we80.cnf
+
+Checking configuration file /usr/local/frontpage/we80.cnf for server type...
+
+Getting DocumentRoot and UserDir.
+Found Directive ResourceConfig, value /dev/null.
+Getting DocumentRoot from /var/www/apache/conf/httpd.conf
+Getting UserDir from /var/www/apache/conf/httpd.conf 
+
+DocumentRoot: /var/www/apache/htdocs
+UserDir: public_html
+
+Found Directive AccessConfig, value /dev/null.
+This is an apache server! Would you like to upgrade it (y/n) [Y]? y
+
+Updating information in /usr/local/frontpage/we80.cnf
+Moving /usr/local/frontpage/we80.cnf to /usr/local/frontpage/we80.cnf.orig
+Creating new /usr/local/frontpage/we80.cnf and setting servertype...
+Config file setting does not appear to be a fakeconf. Continuing...
+
+Preparing to upgrade FrontPage Server...
+Upgrading server 80
+fpsrvadm.exe: Symbol `__vt_8iostream.3ios' has different size in shared object, consider re-linking
+fpsrvadm.exe: Symbol `__vt_3ios' has different size in shared object, consider re-linking
+fpsrvadm.exe: Symbol `__vt_12ostdiostream.3ios' has different size in shared object, consider re-linking
+fpsrvadm.exe: Symbol `__vt_7istream.3ios' has different size in shared object, consider re-linking
+fpsrvadm.exe: Symbol `__vt_8ofstream.3ios' has different size in shared object, consider re-linking
+fpsrvadm.exe: Symbol `__vt_7fstream.3ios' has different size in shared object, consider re-linking
+fpsrvadm.exe: Symbol `__vt_10ostrstream.3ios' has different size in shared object, consider re-linking
+fpsrvadm.exe: Symbol `__vt_12istdiostream.3ios' has different size in shared object, consider re-linking
+fpsrvadm.exe: Symbol `__vt_7ostream.3ios' has different size in shared object, consider re-linking
+fpsrvadm.exe: Symbol `__vt_8ifstream.3ios' has different size in shared object, consider re-linking
+fpsrvadm.exe: Symbol `__vt_12strstreambuf' has different size in shared object, consider re-linking
+fpsrvadm.exe: Symbol `__vt_13strstreambase.3ios' has different size in shared object, consider re-linking
+Enter UNIX username []: www
+Enter UNIX group []: www
+
+Starting upgrade, port: 80, web: "root web"
+
+Created: 14 Nov 2001 17:07:42 -0000
+Original Version: 4.0.2.4222
+Chowning Content in service root web
+Port 80: Upgrade completed.
+Upgraded Version: 4.0.2.4222
+
+Preparing to chown webs...
+
+Your webs have been upgraded to use the new Apache-fp Server. The next step is to chown the web in order to guarantee that the extensions will work properly. At this point you have two options:
+
+1. This script will prompt you interactively for an owner and group of each web and then perform the chown. If you do not have a lot of webs you might want to choose this option.
+2. This script will generate a script, which you can edit to fill in the owner and group for each web, to run at a later date. If you have a large number of webs you might want to choose this option.
+Would you like to be prompted interactively for each webs owner/group (y/n) [Y]? y
+
+Processing webs in port 80...
+
+Getting DocumentRoot and UserDir.
+Found Directive ResourceConfig, value /dev/null.
+Getting DocumentRoot from /var/www/apache/conf/httpd.conf
+Getting UserDir from /var/www/apache/conf/httpd.conf
+
+DocumentRoot: /var/www/apache/htdocs
+
+UserDir: public_html
+
+Getting DocumentRoot and UserDir.
+
+Found Directive ResourceConfig, value /dev/null.
+Getting DocumentRoot from /var/www/apache/conf/httpd.conf
+Getting UserDir from /var/www/apache/conf/httpd.conf
+
+DocumentRoot: /var/www/apache/htdocs
+UserDir: public_html
+
+Who should own web root web on port 80 [www]: www
+What should the group for web root web on port 80 be [www]: www
+/usr/local/frontpage/version4.0/bin/fpsrvadm.exe: Symbol `__vt_8iostream.3ios' has different size in shared object, consider re-linking
+/usr/local/frontpage/version4.0/bin/fpsrvadm.exe: Symbol `__vt_3ios' has different size in shared object, consider re-linking
+/usr/local/frontpage/version4.0/bin/fpsrvadm.exe: Symbol `__vt_12ostdiostream.3ios' has different size in shared object, consider re-linking
+/usr/local/frontpage/version4.0/bin/fpsrvadm.exe: Symbol `__vt_7istream.3ios' has different size in shared object, consider re-linking
+/usr/local/frontpage/version4.0/bin/fpsrvadm.exe: Symbol `__vt_8ofstream.3ios' has different size in shared object, consider re-linking
+/usr/local/frontpage/version4.0/bin/fpsrvadm.exe: Symbol `__vt_7fstream.3ios' has different size in shared object, consider re-linking
+/usr/local/frontpage/version4.0/bin/fpsrvadm.exe: Symbol `__vt_10ostrstream.3ios' has different size in shared object, consider re-linking
+/usr/local/frontpage/version4.0/bin/fpsrvadm.exe: Symbol `__vt_12istdiostream.3ios' has different size in shared object, consider re-linking
+/usr/local/frontpage/version4.0/bin/fpsrvadm.exe: Symbol `__vt_7ostream.3ios' has different size in shared object, consider re-linking
+/usr/local/frontpage/version4.0/bin/fpsrvadm.exe: Symbol `__vt_8ifstream.3ios' has different size in shared object, consider re-linking
+/usr/local/frontpage/version4.0/bin/fpsrvadm.exe: Symbol `__vt_12strstreambuf' has different size in shared object, consider re-linking
+/usr/local/frontpage/version4.0/bin/fpsrvadm.exe: Symbol `__vt_13strstreambase.3ios' has different size in shared object, consider re-linking
+
+Starting chown, port: 80, web: "root web"
+
+DocumentRoot: "/var/www/apache/htdocs"
+Chowning Content in service root web
+Would you like to set the default permissions (y/n) [Y]? y
+
+Installation completed! You will need to stop the old server daemon and start the new one before your webs will work properly. Exiting... 
+
+# Start Apache back up
+$ sudo /var/www/apache/bin/apachectl start
+/var/www/apache/bin/apachectl start: httpd started

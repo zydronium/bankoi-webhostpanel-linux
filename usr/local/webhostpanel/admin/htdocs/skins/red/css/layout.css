@@ -1,0 +1,118 @@
+input.navigationButton,
+input.navigationButton-current {
+  width: 100px;
+  height: 22px;
+}
+
+
+input#bid-logout {
+  width: 80px;
+}
+
+.verttop {
+	vertical-align: top;
+}
+
+.vertcenter {
+	vertical-align: middle;
+}
+
+.vertbottom {
+	vertical-align: bottom;
+}
+
+input.commonButton {
+  width: 115px;
+  height: 22px;
+}
+
+input#bid-next-page, input#bid-prev-page {
+  width: 55px;
+}
+
+a.mailalias {
+  margin-left: 20px; 
+}
+
+.gaugeArea {
+  margin: 2px 0;
+}
+
+
+/*
+.headings
+{
+	Font-family: Verdana, Arial, Helvetica, sans-serif;
+	Font-size: 11px;
+	Color: #003366;	
+	Font-weight : bold;
+}
+
+.tableheadings
+{
+	Font-family: Verdana, Arial, Helvetica, sans-serif;
+	Font-size: 10px;
+	Color: #003366;	
+	Font-weight : bold;
+}
+
+.clientheading
+{
+	Font-family: Verdana, Arial, Helvetica, sans-serif;
+	Font-size: 11px;
+	Color: red;	
+	Font-weight : normal;
+}
+
+.mainheading
+{
+	Font-family: Verdana, Arial, Helvetica, sans-serif;
+	Font-size: 10px;
+	Color: red;	
+	Font-weight : normal;
+}
+
+.navigation
+{
+	Font-family: Verdana, Arial, Helvetica, sans-serif;
+	Font-size: 12px;
+	Color: purple;	
+	Font-weight : bold;
+}
+
+.btntext
+{
+	Font-family: Verdana, Arial, Helvetica, sans-serif;
+	Font-size: 10px;
+	Color: #003366;	
+	Font-weight : normal;
+}
+
+.normaltext
+{
+	Font-family: Verdana, Arial, Helvetica, sans-serif;
+	Font-size: 11px;
+	Color: #003366;	
+	Font-weight : normal;
+}
+
+.textboxclass
+{
+	Font-family: Trebuchet Ws,Verdana, Arial, Helvetica, sans-serif;
+	Font-size: 11px;
+	border: 1px solid red; 
+	padding: 0;
+}*/
+
+.dropdown
+{
+	Font-family: Trebuchet Ws,Verdana, Arial, Helvetica, sans-serif;
+	Font-size: 11px;
+	Border-top-width : thin;
+    Border-right-width : thin;    
+	Border-bottom-width : thin;    
+	Border-left-width : thin;
+    Border-width : 1em;
+    Border-color : rgb(52, 166, 15);
+    Border-style : solid;
+}

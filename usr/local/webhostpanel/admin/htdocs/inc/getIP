@@ -1,0 +1,5 @@
+#!/bin/bash
+ifconfig | grep "inet addr" | cut -d ":" -f2 | cut -d " " -f1 > ip.txt
+ifconfig | grep "Mask" | cut -d ":" -f4 > mask.txt
+ifconfig | grep "eth" | tr -s " " | cut -d " " -f1 > interfaces.txt
+ifconfig | grep "eth[0-100][^:]" | tr -s " " | cut -d " " -f1 > numether.txt

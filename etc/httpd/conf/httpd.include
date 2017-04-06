@@ -1,0 +1,19 @@
+NameVirtualHost  ip:80
+NameVirtualHost  ip:443
+                                                                                                                            
+<VirtualHost ip:80 >
+        DocumentRoot /home/clients/webmail
+        ServerName webmail
+        ServerAlias webmail.*
+        UseCanonicalName Off
+        <Directory /home/httpd/vhosts/webmail/horde>
+                <IfModule sapi_apache2.c>
+                        php_admin_flag engine on
+                        php_admin_flag magic_quotes_gpc off
+                        php_admin_value safe_mode off
+                        php_admin_value open_basedir "/home/clients/webmail:/etc/webhostpanel:/tmp"
+                        php_admin_value include_path "/home/clients/webmail/horde/lib:/home/clients/webmail/horde/pear:/usr/share/pear:."
+                </IfModule>
+        </Directory>
+</VirtualHost>
+

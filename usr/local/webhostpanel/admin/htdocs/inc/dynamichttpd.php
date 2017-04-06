@@ -1,0 +1,145 @@
+<?
+$file_str="<IfModule mod_ssl.c>\n";
+$file_str="<VirtualHost ".$IPaddress.":443>\n";
+$file_str.="\t\tServerName\t".$domainname."\n\t\tServerAlias\twww.".$domainname."\n";
+$file_str.="\t\tUseCanonicalName Off\n\n";
+$file_str.="\t\tDocumentRoot\t".$SetPathinHttpdInclude."/".$domainname."/httpsdocs\n";
+$file_str.="\t\tCustomLog\t".$SetPathinHttpdInclude."/".$domainname."/statistics/logs/access_ssl_log combined\n";
+$file_str.="\t\tErrorLog\t".$SetPathinHttpdInclude."/".$domainname."/statistics/logs/error_ssl_log\n";
+$file_str.="\t\t<IfModule mod_userdir.c>\n";
+$file_str.="\t\t\t UserDir ".$SetPathinHttpdInclude."/".$domainname."/web_users\n";
+$file_str.="\t\t </IfModule>\n";
+if($cgi_sup=='Y')
+{
+	$file_str.="\t\t\tScriptAlias  /cgi-bin/ ".$SetPathinHttpdInclude."/".$domainname."/cgi-bin/\n";
+}
+if($webstat=='Y')
+{
+	$file_str.="\t\t\t Alias  /webstat ".$SetPathinHttpdInclude."/".$domainname."/statistics/webstat/\n";
+}
+
+$file_str.="\t\t\tAlias  /webstat-ssl ".$SetPathinHttpdInclude."/".$domainname."/statistics/webstat-ssl/\n";
+$file_str.="\t\t\tAlias  /ftpstat ".$SetPathinHttpdInclude."/".$domainname."/statistics/ftpstat/\n";
+
+$file_str.="\t\t\tSSLEngine on\n";
+$file_str.="\t\t\tSSLVerifyClient none\n";
+$file_str.="\t\t\tSSLCertificateFile ".$sCpHomeDir."/var/certificates/cert\n";
+$file_str.="\t\t\t<Directory ".$SetPathinHttpdInclude."/".$domainname."/httpsdocs>\n";
+
+if($perl_supp=='Y')
+{
+$file_str.="\t\t\t<IfModule mod_perl.c>\n";
+$file_str.="\t\t\t<Files ~ (\.pl)>\n";
+$file_str.="\t\t\t\t SetHandler perl-script\n";
+$file_str.="\t\t\t\t PerlHandler ModPerl::Registry\n";
+$file_str.="\t\t\t\t Options ExecCGI\n";
+$file_str.="\t\t\t\t allow from all\n";
+$file_str.="\t\t\t\t PerlSendHeader On\n";
+$file_str.="\t\t\t</Files>\n";
+$file_str.="\t\t\t </IfModule>\n";
+
+$file_str.="\t\t\t <IfModule mod_perl.c>\n";
+$file_str.="\t\t\t  <Files ~ (\.asp)>\n";
+$file_str.="\t\t\t\t SetHandler perl-script\n";
+$file_str.="\t\t\t\t PerlHandler Apache::ASP\n";
+$file_str.="\t\t\t\t PerlSetVar Global /tmp\n";
+$file_str.="\t\t\t</Files>\n";
+$file_str.="\t\t\t </IfModule>\n";
+}
+ $file_str.="\t\t\t <IfModule sapi_apache2.c>\n";
+ $file_str.="\t\t\t php_admin_flag engine on\n";
+ $file_str.="\t\t\t php_admin_value open_basedir \"".$SetPathinHttpdInclude."/".$domainname."/httpsdocs:/tmp\"\n";
+ $file_str.="\t\t\t </IfModule>\n";
+ 
+ if($python_sup=='Y')
+ {
+  $file_str.="\t\t\t <IfModule mod_python.c>\n";
+  $file_str.="\t\t\t <Files ~ (\.py)>\n";
+  $file_str.="\t\t\t SetHandler python-program\n";
+  $file_str.="\t\t\t PythonHandler   mod_python.cgihandler\n";
+  $file_str.="\t\t\t </Files>\n";
+  $file_str.="\t\t\t </IfModule>\n";
+ }
+  $file_str.="\t\t\t SSLRequireSSL\n";
+  $file_str.="\t\t\t Options +Includes +ExecCGI\n";
+  $file_str.="\t\t\t </Directory>\n";
+$file_str.="\t\t\t  Alias \"/error_docs\" \"".$SetPathinHttpdInclude."/".$domainname."/error_docs\"\n";
+$file_str.="\t\t\t  ErrorDocument 400 /error_docs/bad_request.html\n";
+$file_str.="\t\t\t  ErrorDocument 403 /error_docs/forbidden.html\n";
+$file_str.="\t\t\t  ErrorDocument 404 /error_docs/not_found.html\n";
+$file_str.="\t\t\t  ErrorDocument 500 /error_docs/internal_server_error.html\n";
+$file_str.="\t\t\t </VirtualHost>\n";
+$file_str.="\t\t\t </IfModule>\n";
+//---------------------------------------------------------------------------------------------------
+//next entry
+$file_str="<VirtualHost ".$IPaddress.":80>\n";
+$file_str.="\t\tServerName\t".$domainname."\n\t\tServerAlias\twww.".$domainname."\n";
+$file_str.="\t\tUseCanonicalName Off\n\n";
+$file_str.="\t\tDocumentRoot\t".$SetPathinHttpdInclude."/".$domainname."/httpsdocs\n";
+$file_str.="\t\tCustomLog\t".$SetPathinHttpdInclude."/".$domainname."/statistics/logs/access_ssl_log combined\n";
+$file_str.="\t\tErrorLog\t".$SetPathinHttpdInclude."/".$domainname."/statistics/logs/error_ssl_log\n";
+$file_str.="\t\t<IfModule mod_userdir.c>\n";
+$file_str.="\t\t\t UserDir ".$SetPathinHttpdInclude."/".$domainname."/web_users\n";
+$file_str.="\t\t </IfModule>\n";
+if($cgi_sup=='Y')
+{
+	$file_str.="\t\t\tScriptAlias  /cgi-bin/ ".$SetPathinHttpdInclude."/".$domainname."/cgi-bin/\n";
+}
+if($webstat=='Y')
+{
+	$file_str.="\t\t\t Alias  /webstat ".$SetPathinHttpdInclude."/".$domainname."/statistics/webstat/\n";
+}
+
+$file_str.="\t\t\tAlias  /webstat-ssl ".$SetPathinHttpdInclude."/".$domainname."/statistics/webstat-ssl/\n";
+$file_str.="\t\t\tAlias  /ftpstat ".$SetPathinHttpdInclude."/".$domainname."/statistics/ftpstat/\n";
+$file_str.="\t\t\t<IfModule mod_ssl.c>\n";
+$file_str.="\t\t\t\tSSLEngine off\n";
+$file_str.="\t\t\t</IfModule>\n";
+$file_str.="\t\t\t<Directory ".$SetPathinHttpdInclude."/".$domainname."/httpsdocs>\n";
+
+if($perl_supp=='Y')
+{
+$file_str.="\t\t\t<IfModule mod_perl.c>\n";
+$file_str.="\t\t\t<Files ~ (\.pl)>\n";
+$file_str.="\t\t\t\t SetHandler perl-script\n";
+$file_str.="\t\t\t\t PerlHandler ModPerl::Registry\n";
+$file_str.="\t\t\t\t Options ExecCGI\n";
+$file_str.="\t\t\t\t allow from all\n";
+$file_str.="\t\t\t\t PerlSendHeader On\n";
+$file_str.="\t\t\t</Files>\n";
+$file_str.="\t\t\t </IfModule>\n";
+
+$file_str.="\t\t\t <IfModule mod_perl.c>\n";
+$file_str.="\t\t\t  <Files ~ (\.asp)>\n";
+$file_str.="\t\t\t\t SetHandler perl-script\n";
+$file_str.="\t\t\t\t PerlHandler Apache::ASP\n";
+$file_str.="\t\t\t\t PerlSetVar Global /tmp\n";
+$file_str.="\t\t\t</Files>\n";
+$file_str.="\t\t\t </IfModule>\n";
+}
+ $file_str.="\t\t\t <IfModule sapi_apache2.c>\n";
+ $file_str.="\t\t\t php_admin_flag engine on\n";
+ $file_str.="\t\t\t php_admin_value open_basedir \"".$SetPathinHttpdInclude."/".$domainname."/httpsdocs:/tmp\"\n";
+ $file_str.="\t\t\t </IfModule>\n";
+ 
+ if($python_sup=='Y')
+ {
+  $file_str.="\t\t\t <IfModule mod_python.c>\n";
+  $file_str.="\t\t\t <Files ~ (\.py)>\n";
+  $file_str.="\t\t\t SetHandler python-program\n";
+  $file_str.="\t\t\t PythonHandler   mod_python.cgihandler\n";
+  $file_str.="\t\t\t </Files>\n";
+  $file_str.="\t\t\t </IfModule>\n";
+ }
+ $file_str.="\t\t\t Options +Includes +ExecCGI\n";
+  $file_str.="\t\t\t </Directory>\n";
+$file_str.="\t\t\t  Alias \"/error_docs\" \"".$SetPathinHttpdInclude."/".$domainname."/error_docs\"\n";
+$file_str.="\t\t\t  ErrorDocument 400 /error_docs/bad_request.html\n";
+$file_str.="\t\t\t  ErrorDocument 403 /error_docs/forbidden.html\n";
+$file_str.="\t\t\t  ErrorDocument 404 /error_docs/not_found.html\n";
+$file_str.="\t\t\t  ErrorDocument 500 /error_docs/internal_server_error.html\n";
+$file_str.="\t\t\t </VirtualHost>\n";
+
+
+echo $file_str;
+?> 

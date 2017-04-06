@@ -1,0 +1,56 @@
+<?$ACCESS_LEVEL=1;?>
+<?include "../inc/connection.php"?>
+<?include "../inc/params.php"?>
+<?include "../inc/functions.php"?>
+<?include "../inc/security.php"?>
+<link rel="stylesheet" type="text/css" href="/skins/<?=$_SESSION["skin"]?>/css/general.css">
+<link rel="stylesheet" type="text/css" href="/skins/<?=$_SESSION["skin"]?>/css/custom.css">
+<link rel="stylesheet" type="text/css" href="/skins/<?=$_SESSION["skin"]?>/css/layout.css">
+<body leftmargin=0 topmargin=0>
+<?
+
+	if(strlen($_POST["idd"])==0)
+	{
+?>
+	<script>
+		alert("No IP to delete");
+		window.location="newserver.php";
+	</script>
+<?
+}
+else{
+	$delIP=split(",",$idd);
+	for($i=0; $i<count($delIP)-1; $i++)
+		{
+			$id=$delIP[$i];
+			$query="select * from tbldomain where ipaddress='".$id."'";
+			myLog($query);
+			$rs=mysql_query($query) or die(errorCatch(mysql_error()));
+			$n=mysql_affected_rows();
+			if($n>0){
+			}
+			else{
+			
+			$query="select * from tblserverip where Id='".$id."'";
+			myLog($query);
+			$rsip=mysql_query($query) or die(errorCatch(mysql_error()));
+			$dataip=@mysql_fetch_object($rsip);
+			
+	//		RemoveIP($dataip->interface,$id);
+			//system("ifconfig ".$dataip->interface.":".$id." del ".$dataip->ipaddress);
+			
+			$query="delete from tblserverip where Id='".$id."'";
+echo $query;			
+myLog($query);
+			mysql_query($query) or die(errorCatch(mysql_error()));;
+			echo "$dataip->interface  $id";
+			RemoveIP($dataip->interface,$id);
+			}
+		}
+}
+
+?>
+<script>
+alert("IP address deleted successfully<?=$_POST["idd"]?>");
+	location.replace('serverip.php');
+</script>

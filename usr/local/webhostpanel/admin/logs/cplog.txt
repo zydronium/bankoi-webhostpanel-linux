@@ -1,0 +1,287 @@
+
+[2004/09/08 12:14:08]  a
+[2004/09/08 12:14:08]  a
+[2004/09/08 12:14:14]  a
+[2004/09/08 12:14:14]  a
+[2004/09/08 12:15:14]  the useradd command returned 
+[2004/09/08 12:15:14]  useradd -d /home/clients/bankoitest -g webhost -s /bin/bash -p'$1$9$uI4pLdLTnEXjIex7Pw.jI0' bankoitest
+[2004/09/08 12:15:46]  select * from tblfirsttime where status='0'
+[2004/09/08 12:15:58]  select * from tblfirsttime where status='0'
+[2004/09/08 12:19:05]  a
+[2004/09/08 12:19:05]  a
+[2004/09/08 12:21:17]  select * from tblfirsttime where status='0'
+[2004/09/08 12:22:22]  select * from tblfirsttime where status='1'
+[2004/09/08 12:24:03]  select * from tblfirsttime where status='0'
+[2004/09/08 12:24:03]  select * from tblresellerip where ipaddress='1'
+[2004/09/08 12:24:03]  select * from tbldomain where ipaddress='1'
+[2004/09/08 12:26:33]  100.200.20.142
+[2004/09/08 12:26:33]  Exclusive
+[2004/09/08 12:26:38]  select * from tblfirsttime where status='0'
+[2004/09/08 12:26:38]  select * from tblresellerip where ipaddress='1'
+[2004/09/08 12:26:38]  select * from tbldomain where ipaddress='1'
+[2004/09/08 12:26:38]  select * from tblresellerip where ipaddress='2'
+[2004/09/08 12:26:38]  select * from tbldomain where ipaddress='2'
+[2004/09/08 12:26:38]  select * from tblresellerip where ipaddress='3'
+[2004/09/08 12:26:38]  select * from tbldomain where ipaddress='3'
+[2004/09/08 12:26:38]  select * from tblresellerip where ipaddress='4'
+[2004/09/08 12:26:38]  select * from tbldomain where ipaddress='4'
+[2004/09/08 12:27:54]  select * from tblfirsttime where status='0'
+[2004/09/08 12:27:54]  select * from tblresellerip where ipaddress='1'
+[2004/09/08 12:27:54]  select * from tbldomain where ipaddress='1'
+[2004/09/08 12:27:54]  select * from tblresellerip where ipaddress='2'
+[2004/09/08 12:27:54]  select * from tbldomain where ipaddress='2'
+[2004/09/08 12:27:54]  select * from tblresellerip where ipaddress='3'
+[2004/09/08 12:27:54]  select * from tbldomain where ipaddress='3'
+[2004/09/08 12:27:54]  select * from tblresellerip where ipaddress='4'
+[2004/09/08 12:27:54]  select * from tbldomain where ipaddress='4'
+[2004/09/08 12:27:54]  select * from tblresellerip where ipaddress='5'
+[2004/09/08 12:27:54]  select * from tbldomain where ipaddress='5'
+[2004/09/08 12:27:54]  select * from tblresellerip where ipaddress='6'
+[2004/09/08 12:27:54]  select * from tbldomain where ipaddress='6'
+[2004/09/08 12:35:06]  select * from tblfirsttime where status='0'
+[2004/09/08 12:35:06]  select * from tblresellerip where ipaddress='1'
+[2004/09/08 12:35:06]  select * from tbldomain where ipaddress='1'
+[2004/09/08 12:35:06]  select * from tblresellerip where ipaddress='2'
+[2004/09/08 12:35:06]  select * from tbldomain where ipaddress='2'
+[2004/09/08 12:36:03]  the useradd command returned 
+[2004/09/08 12:36:03]  useradd -d /home/clients/bankoitest/bankoitest.com -g webuser -s /bin/bash -p'$1$9$uI4pLdLTnEXjIex7Pw.jI0' test
+[2004/09/08 12:36:29]  111.222.2.131
+[2004/09/08 12:36:29]  Exclusive
+[2004/09/08 12:37:34]  select * from tblfirsttime where status='0'
+[2004/09/08 12:37:34]  select * from tblresellerip where ipaddress='1'
+[2004/09/08 12:37:34]  select * from tbldomain where ipaddress='1'
+[2004/09/08 12:37:34]  select * from tblresellerip where ipaddress='2'
+[2004/09/08 12:37:34]  select * from tbldomain where ipaddress='2'
+[2004/09/08 12:37:34]  select * from tblresellerip where ipaddress='10'
+[2004/09/08 12:37:34]  select * from tbldomain where ipaddress='10'
+[2004/09/08 12:37:34]  select * from tblresellerip where ipaddress='9'
+[2004/09/08 12:37:34]  select * from tbldomain where ipaddress='9'
+[2004/09/08 12:37:34]  select * from tblresellerip where ipaddress='8'
+[2004/09/08 12:37:34]  select * from tbldomain where ipaddress='8'
+[2004/09/08 12:37:34]  select * from tblresellerip where ipaddress='7'
+[2004/09/08 12:37:34]  select * from tbldomain where ipaddress='7'
+[2004/09/08 12:39:05]  select * from tblfirsttime where status='0'
+[2004/09/08 12:39:05]  select * from tblresellerip where ipaddress='1'
+[2004/09/08 12:39:05]  select * from tbldomain where ipaddress='1'
+[2004/09/08 12:39:05]  select * from tblresellerip where ipaddress='2'
+[2004/09/08 12:39:05]  select * from tbldomain where ipaddress='2'
+[2004/09/08 12:39:05]  select * from tblresellerip where ipaddress='13'
+[2004/09/08 12:39:05]  select * from tbldomain where ipaddress='13'
+[2004/09/08 12:39:05]  select * from tblresellerip where ipaddress='12'
+[2004/09/08 12:39:05]  select * from tbldomain where ipaddress='12'
+[2004/09/08 12:39:05]  select * from tblresellerip where ipaddress='11'
+[2004/09/08 12:39:05]  select * from tbldomain where ipaddress='11'
+[2004/09/08 12:39:05]  select * from tblresellerip where ipaddress='7'
+[2004/09/08 12:39:05]  select * from tbldomain where ipaddress='7'
+[2004/09/08 12:39:34]  
+[2004/09/08 12:39:34]  userdel test
+[2004/09/08 12:39:39]  select * from tblfirsttime where status='0'
+[2004/09/08 12:39:39]  select * from tblresellerip where ipaddress='1'
+[2004/09/08 12:39:39]  select * from tbldomain where ipaddress='1'
+[2004/09/08 12:39:39]  select * from tblresellerip where ipaddress='2'
+[2004/09/08 12:39:39]  select * from tbldomain where ipaddress='2'
+[2004/09/08 12:39:39]  select * from tblresellerip where ipaddress='13'
+[2004/09/08 12:39:39]  select * from tbldomain where ipaddress='13'
+[2004/09/08 12:39:39]  select * from tblresellerip where ipaddress='12'
+[2004/09/08 12:39:39]  select * from tbldomain where ipaddress='12'
+[2004/09/08 12:39:39]  select * from tblresellerip where ipaddress='11'
+[2004/09/08 12:39:39]  select * from tbldomain where ipaddress='11'
+[2004/09/08 12:39:39]  select * from tblresellerip where ipaddress='7'
+[2004/09/08 12:39:39]  select * from tbldomain where ipaddress='7'
+[2004/09/08 12:39:40]  select * from tblresellerip where ipaddress='14'
+[2004/09/08 12:39:40]  select * from tbldomain where ipaddress='14'
+[2004/09/08 12:39:40]  select * from tblresellerip where ipaddress='15'
+[2004/09/08 12:39:40]  select * from tbldomain where ipaddress='15'
+[2004/09/08 12:39:40]  select * from tblresellerip where ipaddress='16'
+[2004/09/08 12:39:40]  select * from tbldomain where ipaddress='16'
+[2004/09/08 12:46:31]  select * from tblfirsttime where status='0'
+[2004/09/08 12:46:31]  select * from tblresellerip where ipaddress='1'
+[2004/09/08 12:46:31]  select * from tbldomain where ipaddress='1'
+[2004/09/08 12:46:31]  select * from tblresellerip where ipaddress='2'
+[2004/09/08 12:46:31]  select * from tbldomain where ipaddress='2'
+[2004/09/08 12:46:31]  select * from tblresellerip where ipaddress='7'
+[2004/09/08 12:46:31]  select * from tbldomain where ipaddress='7'
+[2004/09/08 12:47:17]  124.250.3.121
+[2004/09/08 12:47:17]  Exclusive
+[2004/09/08 12:47:22]  select * from tblfirsttime where status='0'
+[2004/09/08 12:47:22]  select * from tblresellerip where ipaddress='1'
+[2004/09/08 12:47:22]  select * from tbldomain where ipaddress='1'
+[2004/09/08 12:47:22]  select * from tblresellerip where ipaddress='2'
+[2004/09/08 12:47:22]  select * from tbldomain where ipaddress='2'
+[2004/09/08 12:47:22]  select * from tblresellerip where ipaddress='7'
+[2004/09/08 12:47:22]  select * from tbldomain where ipaddress='7'
+[2004/09/08 12:47:22]  select * from tblresellerip where ipaddress='17'
+[2004/09/08 12:47:22]  select * from tbldomain where ipaddress='17'
+[2004/09/08 01:37:01]  the useradd command returned 
+[2004/09/08 01:37:01]  useradd -d /home/clients/bankoitest/bankoitest.com -g webuser -s /bin/bash -p'$1$9$uI4pLdLTnEXjIex7Pw.jI0' test
+[2004/09/08 01:51:28]  
+[2004/09/08 01:51:28]  userdel test
+[2004/09/08 01:52:45]  the useradd command returned 
+[2004/09/08 01:52:45]  useradd -d /home/clients/bankoitest/testbankoi.com -g webuser -s /bin/bash -p'$1$9$uI4pLdLTnEXjIex7Pw.jI0' test
+[2004/09/08 03:10:55]  a
+[2004/09/08 03:10:55]  a
+[2004/09/08 03:12:11]  
+[2004/09/08 03:12:11]  userdel test
+[2004/09/08 03:15:58]  the useradd command returned 
+[2004/09/08 03:15:58]  useradd -d /home/clients/testbankoi -g webhost -s /bin/bash -p'$1$9$uI4pLdLTnEXjIex7Pw.jI0' testbankoi
+[2004/09/08 03:18:48]  the useradd command returned 
+[2004/09/08 03:18:48]  useradd -d /home/clients/testbankoi/bankoitest.com -g webuser -s /bin/bash -p'$1$9$uI4pLdLTnEXjIex7Pw.jI0' test
+[2004/09/08 03:18:51]  Insert into tbldnsdomain set domainid='4',host='ftp.bankoitest.com.',recordtype='CNAME',value='bankoitest.com.'
+[2004/09/08 03:18:51]  Insert into tbldnsdomain set domainid='4',host='bankoitest.com.',recordtype='NS',value='ns.bankoitest.com.'
+[2004/09/08 03:18:51]  Insert into tbldnsdomain set domainid='4',host='bankoitest.com.',recordtype='MX	10',value='mail.bankoitest.com.'
+[2004/09/08 03:18:51]  Insert into tbldnsdomain set domainid='4',host='bankoitest.com.',recordtype='A',value='70.240.3.131'
+[2004/09/08 03:18:51]  Insert into tbldnsdomain set domainid='4',host='mail.bankoitest.com.',recordtype='A',value='70.240.3.131'
+[2004/09/08 03:18:51]  Insert into tbldnsdomain set domainid='4',host='ns.bankoitest.com.',recordtype='A',value='70.240.3.131'
+[2004/09/08 03:18:51]  Insert into tbldnsdomain set domainid='4',host='dev.bankoitest.com.',recordtype='A',value='70.240.3.131'
+[2004/09/08 04:05:57]  Database created successfully 23
+[2004/09/08 04:05:57]  insert into tbldatabase (domainid,databasename,dbusername,dbpassword,dbtype) values(4,'bankoi','ban','123456','MySql')
+[2004/09/08 04:07:40]  the useradd command returned 
+[2004/09/08 04:07:40]  useradd -d /home/clients/testbankoi/bankoitest.com/subdomains/ash.bankoitest.com -g webuser -s /bin/bash -p'$1$9$uI4pLdLTnEXjIex7Pw.jI0' ash
+[2004/09/08 04:09:03]  
+[2004/09/08 04:09:03]  userdel ash
+[2004/09/08 04:09:25]  the useradd command returned 
+[2004/09/08 04:09:25]  useradd -d /home/clients/testbankoi/bankoitest.com/subdomains/ash.bankoitest.com -g webuser -s /bin/bash -p'$1$9$uI4pLdLTnEXjIex7Pw.jI0' ash
+[2004/09/08 04:09:47]  the useradd command returned 
+[2004/09/08 04:09:47]  useradd -d /home/clients/testbankoi/bankoitest.com/subdomains/ash1.bankoitest.com -g webuser -s /bin/bash -p'$1$9$uI4pLdLTnEXjIex7Pw.jI0' ash1
+[2004/09/08 04:10:27]  Adding password for user ashish
+
+[2004/09/08 04:10:27]  
+[2004/09/08 04:10:30]  Stopping httpd: [  OK  ]
+Starting httpd: [  OK  ]
+
+[2004/09/08 04:12:43]  The command lswas successfully added to the crontab
+[2004/09/08 04:45:22]  select * from tblfirsttime where status='0'
+[2004/09/08 04:45:22]  select * from tblresellerip where ipaddress='1'
+[2004/09/08 04:45:22]  select * from tbldomain where ipaddress='1'
+[2004/09/08 04:45:22]  select * from tblresellerip where ipaddress='2'
+[2004/09/08 04:45:22]  select * from tbldomain where ipaddress='2'
+[2004/09/08 04:45:22]  select * from tblresellerip where ipaddress='7'
+[2004/09/08 04:45:22]  select * from tbldomain where ipaddress='7'
+[2004/09/08 04:45:22]  select * from tblresellerip where ipaddress='17'
+[2004/09/08 04:45:22]  select * from tbldomain where ipaddress='17'
+[2004/09/08 04:45:34]  select * from tblserverip where Id='2'
+[2004/09/08 04:45:34]  select * from tbldomain where ipaddress='2'
+[2004/09/08 04:45:34]  select * from tblserverip where Id='7'
+[2004/09/08 04:45:34]  select * from tbldomain where ipaddress='7'
+[2004/09/08 04:45:34]  select * from tblserverip where Id='17'
+[2004/09/08 04:45:34]  select * from tbldomain where ipaddress='17'
+[2004/09/08 04:45:38]  select * from tbldomain where ipaddress='2'
+[2004/09/08 04:45:38]  select * from tblserverip where Id='2'
+[2004/09/08 04:45:42]  delete from tblserverip where Id='2'
+[2004/09/08 04:45:42]  select * from tbldomain where ipaddress='7'
+[2004/09/08 04:45:42]  select * from tblserverip where Id='7'
+[2004/09/08 04:45:44]  delete from tblserverip where Id='7'
+[2004/09/08 04:45:44]  select * from tbldomain where ipaddress='17'
+[2004/09/08 04:45:44]  select * from tblserverip where Id='17'
+[2004/09/08 04:45:47]  delete from tblserverip where Id='17'
+[2004/09/08 04:45:47]  select * from tbldomain where ipaddress=''
+[2004/09/08 04:45:47]  select * from tblserverip where Id=''
+[2004/09/08 04:45:50]  delete from tblserverip where Id=''
+[2004/09/08 04:45:52]  select * from tblfirsttime where status='0'
+[2004/09/08 04:45:52]  select * from tblresellerip where ipaddress='1'
+[2004/09/08 04:45:52]  select * from tbldomain where ipaddress='1'
+[2004/09/08 08:07:57]  a
+[2004/09/08 08:07:57]  a
+[2004/09/09 05:46:31]  a
+[2004/09/09 05:46:31]  a
+[2004/09/09 05:56:08]  a
+[2004/09/09 05:56:08]  a
+[2004/09/09 05:56:09]  a
+[2004/09/09 05:56:09]  a
+[2004/09/09 05:56:22]  select * from tblfirsttime where status='0'
+[2004/09/09 05:56:22]  select * from tblresellerip where ipaddress='1'
+[2004/09/09 05:56:22]  select * from tbldomain where ipaddress='1'
+[2004/09/09 06:03:03]  the useradd command returned 
+[2004/09/09 06:03:03]  useradd -d /home/clients/serveradmin -g webhost -s /bin/bash -p'$1$9$ZKaydxKtO7preg9vaivxR.' serveradmin
+[2004/09/09 06:05:22]  the useradd command returned 
+[2004/09/09 06:05:22]  useradd -d /home/clients/serveradmin/tecnetworks.net -g webuser -s /bin/bash -p'$1$9$1BX3TE/9HVuzxv/0Ux4Nx0' tecnetworks
+[2004/09/09 06:05:24]  Insert into tbldnsdomain set domainid='5',host='ftp.tecnetworks.net.',recordtype='CNAME',value='tecnetworks.net.'
+[2004/09/09 06:05:24]  Insert into tbldnsdomain set domainid='5',host='tecnetworks.net.',recordtype='NS',value='ns1.tecnetworks.net.'
+[2004/09/09 06:05:24]  Insert into tbldnsdomain set domainid='5',host='tecnetworks.net.',recordtype='MX	10',value='mail.tecnetworks.net.'
+[2004/09/09 06:05:24]  Insert into tbldnsdomain set domainid='5',host='tecnetworks.net.',recordtype='A',value='70.240.3.131'
+[2004/09/09 06:05:24]  Insert into tbldnsdomain set domainid='5',host='mail.tecnetworks.net.',recordtype='A',value='70.240.3.131'
+[2004/09/09 06:05:24]  Insert into tbldnsdomain set domainid='5',host='ns1.tecnetworks.net.',recordtype='A',value='70.240.3.131'
+[2004/09/09 06:05:24]  Insert into tbldnsdomain set domainid='5',host='dev.tecnetworks.net.',recordtype='A',value='70.240.3.131'
+[2004/09/09 06:05:24]  Insert into tbldnsdomain set domainid='5',host='tecnetworks.net.',recordtype='NS',value='ns2.tecnetworks.net.'
+[2004/09/09 06:05:24]  Insert into tbldnsdomain set domainid='5',host='www.tecnetworks.net.',recordtype='A',value='70.240.3.131'
+[2004/09/09 06:05:24]  Insert into tbldnsdomain set domainid='5',host='ns2.tecnetworks.net.',recordtype='A',value='70.240.3.131'
+[2004/09/09 11:20:42]  a
+[2004/09/09 11:20:42]  a
+[2004/09/09 11:43:24]  select * from tblfirsttime where status='0'
+[2004/09/09 11:43:24]  select * from tblresellerip where ipaddress='1'
+[2004/09/09 11:43:24]  select * from tbldomain where ipaddress='1'
+[2004/09/09 11:44:23]  70.240.3.183
+[2004/09/09 11:44:23]  Exclusive
+[2004/09/09 11:44:30]  select * from tblfirsttime where status='0'
+[2004/09/09 11:44:30]  select * from tblresellerip where ipaddress='1'
+[2004/09/09 11:44:30]  select * from tbldomain where ipaddress='1'
+[2004/09/09 11:44:30]  select * from tblresellerip where ipaddress='18'
+[2004/09/09 11:44:30]  select * from tbldomain where ipaddress='18'
+[2004/09/09 11:49:24]  select * from tblfirsttime where status='0'
+[2004/09/09 11:49:24]  select * from tblresellerip where ipaddress='1'
+[2004/09/09 11:49:24]  select * from tbldomain where ipaddress='1'
+[2004/09/09 11:49:24]  select * from tblresellerip where ipaddress='18'
+[2004/09/09 11:49:24]  select * from tbldomain where ipaddress='18'
+[2004/09/09 11:49:38]  select * from tblserverip where Id='18'
+[2004/09/09 11:49:38]  select * from tbldomain where ipaddress='18'
+[2004/09/09 11:50:12]  select * from tbldomain where ipaddress='18'
+[2004/09/09 11:50:12]  select * from tblserverip where Id='18'
+[2004/09/09 11:50:15]  delete from tblserverip where Id='18'
+[2004/09/09 11:50:15]  select * from tbldomain where ipaddress=''
+[2004/09/09 11:50:15]  select * from tblserverip where Id=''
+[2004/09/09 11:50:18]  delete from tblserverip where Id=''
+[2004/09/09 11:51:04]  select * from tblfirsttime where status='0'
+[2004/09/09 11:51:04]  select * from tblresellerip where ipaddress='1'
+[2004/09/09 11:51:04]  select * from tbldomain where ipaddress='1'
+[2004/09/09 11:52:13]  70.240.3.183
+[2004/09/09 11:52:13]  Exclusive
+[2004/09/09 11:52:20]  select * from tblfirsttime where status='0'
+[2004/09/09 11:52:20]  select * from tblresellerip where ipaddress='1'
+[2004/09/09 11:52:20]  select * from tbldomain where ipaddress='1'
+[2004/09/09 11:52:20]  select * from tblresellerip where ipaddress='19'
+[2004/09/09 11:52:20]  select * from tbldomain where ipaddress='19'
+[2004/09/09 02:24:19]  a
+[2004/09/09 02:24:19]  a
+[2004/09/09 02:25:26]  select * from tblfirsttime where status='0'
+[2004/09/09 02:25:26]  select * from tblresellerip where ipaddress='1'
+[2004/09/09 02:25:26]  select * from tbldomain where ipaddress='1'
+[2004/09/09 02:28:06]  70.240.3.183
+[2004/09/09 02:28:06]  Exclusive
+[2004/09/09 02:28:14]  select * from tblfirsttime where status='0'
+[2004/09/09 02:28:14]  select * from tblresellerip where ipaddress='1'
+[2004/09/09 02:28:14]  select * from tbldomain where ipaddress='1'
+[2004/09/09 02:28:14]  select * from tblresellerip where ipaddress='2'
+[2004/09/09 02:28:14]  select * from tbldomain where ipaddress='2'
+[2004/09/09 02:33:25]  the useradd command returned 
+[2004/09/09 02:33:25]  useradd -d /home/clients/testbankoi -g webhost -s /bin/bash -p'$1$9$uI4pLdLTnEXjIex7Pw.jI0' testbankoi
+[2004/09/09 02:40:47]  the useradd command returned 
+[2004/09/09 02:40:47]  useradd -d /home/clients/testbankoi/testbankoi.com -g webuser -s /bin/bash -p'$1$9$uI4pLdLTnEXjIex7Pw.jI0' test
+[2004/09/09 02:40:48]  Insert into tbldnsdomain set domainid='1',host='ftp.testbankoi.com.',recordtype='CNAME',value='testbankoi.com.'
+[2004/09/09 02:40:48]  Insert into tbldnsdomain set domainid='1',host='testbankoi.com.',recordtype='NS',value='ns.testbankoi.com.'
+[2004/09/09 02:40:48]  Insert into tbldnsdomain set domainid='1',host='testbankoi.com.',recordtype='MX	10',value='mail.testbankoi.com.'
+[2004/09/09 02:40:48]  Insert into tbldnsdomain set domainid='1',host='testbankoi.com.',recordtype='A',value='70.240.3.138'
+[2004/09/09 02:40:48]  Insert into tbldnsdomain set domainid='1',host='mail.testbankoi.com.',recordtype='A',value='70.240.3.138'
+[2004/09/09 02:40:48]  Insert into tbldnsdomain set domainid='1',host='ns.testbankoi.com.',recordtype='A',value='70.240.3.138'
+[2004/09/09 02:40:48]  Insert into tbldnsdomain set domainid='1',host='dev.testbankoi.com.',recordtype='A',value='70.240.3.138'
+[2004/09/09 03:23:07]  Adding password for user ashish
+
+[2004/09/09 03:23:07]  
+[2004/09/09 03:23:07]  Stopping httpd: [FAILED]
+Starting httpd: [Thu Sep 09 15:23:07 2004] [error] (22002)Name or service not known: Cannot resolve host name i70.240.3.138 --- ignoring!
+httpd: Could not determine the server's fully qualified domain name, using 127.0.0.1 for ServerName
+[FAILED]
+
+[2004/09/09 03:25:27]  Database created successfully 23
+[2004/09/09 03:25:27]  insert into tbldatabase (domainid,databasename,dbusername,dbpassword,dbtype) values(1,'bankoi','bankoi','123456','MySql')
+[2004/09/09 03:35:31]  the useradd command returned 
+[2004/09/09 03:35:31]  useradd -d /home/clients/testbankoi/testbankoi.com/subdomains/hg.testbankoi.com -g webuser -s /bin/bash -p'$1$9$uI4pLdLTnEXjIex7Pw.jI0' hg
+[2004/09/09 03:38:08]  The command lswas successfully added to the crontab
+[2004/09/09 04:08:06]  a
+[2004/09/09 04:08:06]  a
+[2004/09/09 11:39:50]  a
+[2004/09/09 11:39:50]  a
+[2004/09/09 11:47:11]  select * from tblfirsttime where status='0'
+[2004/09/09 11:47:11]  select * from tblresellerip where ipaddress='1'
+[2004/09/09 11:47:11]  select * from tbldomain where ipaddress='1'
+[2004/09/09 11:47:11]  select * from tblresellerip where ipaddress='2'
+[2004/09/09 11:47:11]  select * from tbldomain where ipaddress='2'

@@ -1,0 +1,220 @@
+<?$ACCESS_LEVEL=1;?>
+<?include "../inc/connection.php"?>
+<?include "../inc/params.php"?>
+<?include "../inc/functions.php"?>
+<?include "../inc/security.php"?>
+<html>
+<head>
+<title>Set System Date And Time</title>
+
+<script language="JavaScript">
+function chkfrm(f)
+	{
+		if(f.tmonth.value=="")
+			{
+				alert("Please provide value for Month");
+				f.tmonth.focus();
+				return false;
+			}
+		if(f.tdate.value=="")
+			{
+				alert("Please provide value for Date");
+				f.tdate.focus();
+				return false;
+			}
+		if(f.thour.value=="")
+			{
+				alert("Please provide value for Hour");
+				f.thour.focus();
+				return false;
+			}
+		if(f.tminute.value=="")
+			{
+				alert("Please provide value for Minute");
+				f.tminute.focus();
+				return false;
+			}
+		if(f.tyear.value=="")
+			{
+				alert("Please provide value for Year");
+				f.tyear.focus();
+				return false;
+			}
+		if(isNaN(f.tmonth.value) || parseInt(f.tmonth.value) > 12 || parseInt(f.tmonth.value) < 1)
+			{
+				alert("Please provide a valid value for the month");
+				f.tmonth.value = "";
+				f.tmonth.focus();
+				return false;
+			}
+		if(isNaN(f.thour.value) || parseInt(f.thour.value) > 23 || parseInt(f.thour.value) < 0)
+			{
+				alert("Please provide a valid value for the Hour");
+				f.thour.value = "";
+				f.thour.focus();
+				return false;
+			}
+		if(isNaN(f.tminute.value) || parseInt(f.tminute.value) > 59 || parseInt(f.tminute.value) < 0)
+			{
+				alert("Please provide a valid value for the Minute");
+				f.tminute.value = "";
+				f.tminute.focus();
+				return false;
+			}
+		
+		if(isNaN(f.tyear.value) || parseInt(f.tyear.value) < 1970)
+			{
+				alert("Please provide a valid value for the Year");
+				f.tyear.value = "";
+				f.tyear.focus();
+				return false;
+			}
+			
+			
+		if(parseInt(f.tmonth.value) == 1 || parseInt(f.tmonth.value) == 3 || parseInt(f.tmonth.value) == 5 || parseInt(f.tmonth.value) == 7 || parseInt(f.tmonth.value) == 9 || parseInt(f.tmonth.value) == 11)
+			{
+				if(parseInt(f.tdate.value) > 31)
+					{
+						alert("The max date for this month is 31");
+						f.tdate.value = "";
+						f.tdate.focus();
+						return false;
+					}
+				if(parseInt(f.tdate.value) < 1)
+					{
+						alert("The min date for this month is 1");
+						f.tdate.value = "";
+						f.tdate.focus();
+						return false;
+					}
+			}
+			
+			
+		if(parseInt(f.tmonth.value) == 4 || parseInt(f.tmonth.value) == 6 || parseInt(f.tmonth.value) == 8 || parseInt(f.tmonth.value) == 10 || parseInt(f.tmonth.value) == 12)
+			{
+				if(parseInt(f.tdate.value) > 30)
+					{
+						alert("The max date for this month is 30");
+						f.tdate.value = "";
+						f.tdate.focus();
+						return false;
+					}
+				if(parseInt(f.tdate.value) < 1)
+					{
+						alert("The min date for this month is 1");
+						f.tdate.value = "";
+						f.tdate.focus();
+						return false;
+					}
+			}
+			
+		if(parseInt(f.tmonth.value) == 2)
+			{
+				if((parseInt(f.tyear.value) % 4 == 0 && parseInt(f.tyear.value) % 100 != 0) || parseInt(f.tyear.value) % 400 == 0)
+					{
+						if(parseInt(f.tdate.value) > 29)	
+							{
+								alert("Sorry the year you provided is a leap year and the month is 2 , \nso the date should be less then 30");
+								f.tdate.value = "";
+								f.tdate.focus();
+								return false;
+							}
+					}
+			}
+		if(confirm("Do you want to set the system date and time!"))
+			{
+				f.action = "setdatetime1.php";
+				f.submit();
+				return true;
+			}
+		else
+			{
+				return false
+			}
+	}
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head><link rel="stylesheet" type="text/css" href="/skins/<?=$_SESSION["skin"]?>/css/general.css">
+<link rel="stylesheet" type="text/css" href="/skins/<?=$_SESSION["skin"]?>/css/custom.css">
+<link rel="stylesheet" type="text/css" href="/skins/<?=$_SESSION["skin"]?>/css/layout.css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<META HTTP-EQUIV="EXPIRES" CONTENT="0">
+<body topmargin="0">
+<?
+	include "../inc/mainheader.php";
+?>
+<form name="mainform" action="" method="post" onSubmit="return chkfrm(document.mainform)">
+  <table width="80%" border="0" align="center" cellspacing="0" cellpadding="0">
+    <?
+	if(strtoupper($_SESSION["type"])=="A")
+		{
+?>
+    <tr> 
+      <td align="left" class="navigation">Administrator &gt; Servers &gt; Set Date and Time</td>
+    </tr>
+<?
+		}
+	elseif(strtoupper($_SESSION["type"])=="C")
+		{
+?>
+    <?
+		}
+	elseif(strtoupper($_SESSION["type"])=="D")
+		{
+?>
+    <?
+		}
+?>
+    <tr> 
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+<table width="85%" border="0" align="center">
+  <tr> 
+    <td colspan="3"><div align="center"class="clientheading">
+        Set the date and time for the linux server.
+        <p>&nbsp;</p>
+      </div></td>
+  </tr>
+	<td colspan="3" class="clientheading"> <? $i=system("date",$retval) ?><table width="100%" border="0">
+  <tr bgcolor="#C8DCFB"> 
+    <td width="43%"><div align="right" class="headings">Enter the Date &amp; Time:</div></td>
+    <td width="4%">&nbsp;</td>
+    <td width="53%" class="headings">MM 
+      <input name="tmonth" type="text" class="textboxclass" id="tmonth" size="2" maxlength="2">
+      DD 
+      <input name="tdate" type="text" class="textboxclass" id="tdate" size="2" maxlength="2">
+	  Day
+      <input name="tday" type="text" class="textboxclass" id="tday" size="2" maxlength="2">
+      hh 
+      <input name="thour" type="text" class="textboxclass" id="thour" size="2" maxlength="2">
+      mm 
+      <input name="tminute" type="text" class="textboxclass" id="tminute" size="2" maxlength="2">
+	  sec
+	  <input name="tsec" type="text" class="textboxclass" id="tsec" size="2" maxlength="2">
+      YY 
+      <input name="tyear" type="text" class="textboxclass" id="tyear" size="4" maxlength="4"></td>
+  </tr>
+  <tr> 
+    <td colspan="3"><div align="right"></div></td>
+  </tr>
+  <tr> 
+    <td colspan="3" class="clientheading"> <div align="right">
+        <input type="submit" class="commonbutton" name="Add" value="Set Date & Time">
+        <input type="button" class="commonbutton" name="Add2" value="Back" onClick="window.location='../server/server.php'">
+      </div></td>
+  
+  <tr bgcolor="#C6F3B1">
+    <td colspan="3" class="clientheading"><table width="100%" border="0">
+        <tr> 
+          <td colspan="3" class="clientheading">MM = Month </td>
+          <td colspan="3" class="clientheading">DD = Date</td>
+          <td colspan="3" class="clientheading">Day = Day(&gt;1 for Monday)</td>
+          <td colspan="3" class="clientheading">hh = Hour(24 hour format) </td>
+          <td colspan="3" class="clientheading">mm = Minutes </td>
+		  <td colspan="3" class="clientheading">sec = Seconds </td>
+          <td width="21%" colspan="3" class="clientheading">YY = Year (&gt;1970)</td>
+        </tr>
+      </table></td>
+</table>
+<p>&nbsp;</p>

@@ -1,0 +1,32 @@
+Port 80
+ResourceConfig /dev/null
+AccessConfig /dev/null
+ServerRoot "/etc/httpd"
+
+NameVirtualHost 127.0.0.1
+
+<VirtualHost   127.0.0.1:80>
+        ServerName      fatchilli.bankoi.com
+        User            fatchilli
+        Group   psacln
+        DocumentRoot    /home/httpd/vhosts/fatchilli.bankoi.com/httpdocs
+        <Directory "/home/httpd/vhosts/fatchilli.bankoi.com/httpdocs">
+                Options Indexes FollowSymLinks
+                AllowOverride AuthConfig Limit Indexes Options
+                Order allow,deny
+                Allow from all
+        </Directory>
+</VirtualHost>
+
+<VirtualHost   127.0.0.1:80>
+        ServerName      www.fatchilli.bankoi.com
+        User            fatchilli
+        Group   psacln
+        DocumentRoot    /home/httpd/vhosts/fatchilli.bankoi.com/httpdocs
+        <Directory "/home/httpd/vhosts/fatchilli.bankoi.com/httpdocs">
+                Options Indexes FollowSymLinks
+                AllowOverride AuthConfig Limit Indexes Options
+                Order allow,deny
+                Allow from all
+        </Directory>
+</VirtualHost>

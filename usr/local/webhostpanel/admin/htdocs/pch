@@ -1,0 +1,65 @@
+*** lib/checkpw.c.orig
+--- lib/checkpw.c	
+***************
+*** 145,151 ****
+  				       "*cmusaslsecretPLAIN",
+  				       NULL };
+      struct propval auxprop_values[3];
+!     
+      if (!conn || !userstr)
+  	return SASL_BADPARAM;
+  
+--- 145,155 ----
+  				       "*cmusaslsecretPLAIN",
+  				       NULL };
+      struct propval auxprop_values[3];
+! 
+!     /* added lopaka */
+!     char *salt = malloc(13);
+!     char *crypt_passwd = NULL;
+! 
+      if (!conn || !userstr)
+  	return SASL_BADPARAM;
+  
+***************
+*** 182,193 ****
+  	goto done;
+      }
+  
+      /* At the point this has been called, the username has been canonified
+       * and we've done the auxprop lookup.  This should be easy. */
+      if(auxprop_values[0].name
+         && auxprop_values[0].values
+         && auxprop_values[0].values[0]
+!        && !strcmp(auxprop_values[0].values[0], passwd)) {
+  	/* We have a plaintext version and it matched! */
+  	return SASL_OK;
+      } else if(auxprop_values[1].name
+--- 186,211 ----
+  	goto done;
+      }
+  
++     /* 20030213 lopaka */
++     /* encrypt the passwd and then compare it with the encrypted passwd */
++     if(strlen(auxprop_values[0].values[0]) > 13)
++     {
++         /* MD5 */
++         strncpy(salt,auxprop_values[0].values[0],13);
++     }
++     else
++     {
++         /* DES */
++         strncpy(salt,auxprop_values[0].values[0],3);
++     }
++     crypt_passwd = crypt(passwd,salt);
++ 
+      /* At the point this has been called, the username has been canonified
+       * and we've done the auxprop lookup.  This should be easy. */
+      if(auxprop_values[0].name
+         && auxprop_values[0].values
+         && auxprop_values[0].values[0]
+!        && !strcmp(auxprop_values[0].values[0], crypt_passwd)) {  
+  	/* We have a plaintext version and it matched! */
+  	return SASL_OK;
+      } else if(auxprop_values[1].name
+

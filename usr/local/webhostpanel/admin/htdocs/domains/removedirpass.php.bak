@@ -1,0 +1,45 @@
+<?$ACCESS_LEVEL=3;?>
+<?include "../inc/connection.php"?>
+<?include "../inc/params.php"?>
+<?include "../inc/security.php"?>
+<?include "../inc/functions.php"?>
+<?include "../inc/mainheader.php"?>
+<html>
+<head>
+<title>Domains Listing</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<link rel="stylesheet" type="text/css" href="/skins/<?=$_SESSION["skin"]?>/css/general.css">
+<link rel="stylesheet" type="text/css" href="/skins/<?=$_SESSION["skin"]?>/css/custom.css">
+<link rel="stylesheet" type="text/css" href="/skins/<?=$_SESSION["skin"]?>/css/layout.css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<META HTTP-EQUIV="EXPIRES" CONTENT="0">
+</head>
+
+<?
+	if(strtoupper($_SESSION["type"])=="C" || strtoupper($_SESSION["type"])=="A")
+		include "../clients/clientheader.php";
+	include "../domains/domainheader.php";
+
+	for($i=0 ; $i < count($_POST["dir_id"]);$i++)
+		{
+				if($ID == "")
+					{
+							$ID=$_POST["dir_id"][$i];		
+					}
+				else	
+					{
+							$ID = $ID . " , " . $_POST["dir_id"][$i];
+					}
+		}
+	$query = "select * from tbldirpass where id in (" . $ID . ")";
+	$exDir = @mysql_query($query);
+	while($rsDir = @mysql_fetch_array($exDir))
+			{
+				$dirName = $rsDir["dirname"];
+				$userName = $rsDir["username"];
+				$passWD	 = $rsDir["passwd"];
+				
+			}
+	RemovePwdProtectDir($home,$username1,$passwd1,$DirName,$DomainName)
+?>

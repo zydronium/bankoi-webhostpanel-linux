@@ -1,0 +1,86 @@
+[Wed Sep  8 11:32:00 2004] [warn] pid file /usr/local/webhostpanel/admin/logs/httpcpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Wed Sep  8 11:32:00 2004] [notice] Apache/1.3.31 (Unix) mod_ssl/2.8.19 OpenSSL/0.9.7a PHP/4.3.8 configured -- resuming normal operations
+[Wed Sep  8 11:32:00 2004] [notice] Accept mutex: sysvsem (Default: sysvsem)
+[Wed Sep  8 11:32:19 2004] [error] mod_ssl: SSL handshake failed (server www.example.com:8443, client 202.3.80.128) (OpenSSL library error follows)
+[Wed Sep  8 11:32:19 2004] [error] OpenSSL: error:14094412:SSL routines:SSL3_READ_BYTES:sslv3 alert bad certificate [Hint: Subject CN in certificate not server name or identical to CA!?]
+[Wed Sep  8 12:14:00 2004] [notice] SIGHUP received.  Attempting to restart
+[Wed Sep  8 12:14:00 2004] [notice] Apache/1.3.31 (Unix) mod_ssl/2.8.19 OpenSSL/0.9.7a PHP/4.3.8 configured -- resuming normal operations
+[Wed Sep  8 12:14:00 2004] [notice] Accept mutex: sysvsem (Default: sysvsem)
+[Wed Sep  8 15:08:27 2004] [warn] pid file /usr/local/webhostpanel/admin/logs/httpcpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Wed Sep  8 15:08:27 2004] [notice] Apache/1.3.31 (Unix) mod_ssl/2.8.19 OpenSSL/0.9.7a PHP/4.3.8 configured -- resuming normal operations
+[Wed Sep  8 15:08:27 2004] [notice] Accept mutex: sysvsem (Default: sysvsem)
+[Wed Sep  8 15:35:05 2004] [error] mod_ssl: SSL handshake failed (server www.example.com:8443, client 70.240.3.140) (OpenSSL library error follows)
+[Wed Sep  8 15:35:05 2004] [error] OpenSSL: error:14094412:SSL routines:SSL3_READ_BYTES:sslv3 alert bad certificate [Hint: Subject CN in certificate not server name or identical to CA!?]
+cat: /var/named/named.pid: No such file or directory
+kill: usage: kill [-s sigspec | -n signum | -sigspec] [pid | job]... or kill -l [sigspec]
+cat: /var/named/named.pid: No such file or directory
+kill: usage: kill [-s sigspec | -n signum | -sigspec] [pid | job]... or kill -l [sigspec]
+cat: /var/named/named.pid: No such file or directory
+kill: usage: kill [-s sigspec | -n signum | -sigspec] [pid | job]... or kill -l [sigspec]
+cat: /var/named/named.pid: No such file or directory
+kill: usage: kill [-s sigspec | -n signum | -sigspec] [pid | job]... or kill -l [sigspec]
+cat: /var/named/named.pid: No such file or directory
+kill: usage: kill [-s sigspec | -n signum | -sigspec] [pid | job]... or kill -l [sigspec]
+cat: /var/named/named.pid: No such file or directory
+kill: usage: kill [-s sigspec | -n signum | -sigspec] [pid | job]... or kill -l [sigspec]
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+rndc: connect failed: connection refused
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+cat: /var/named/named.pid: No such file or directory
+kill: usage: kill [-s sigspec | -n signum | -sigspec] [pid | job]... or kill -l [sigspec]
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+rndc: connect failed: connection refused
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+[Thu Sep  9 06:03:18 2004] [error] mod_ssl: SSL handshake interrupted by system [Hint: Stop button pressed in browser?!] (System error follows)
+[Thu Sep  9 06:03:18 2004] [error] System: Connection reset by peer (errno: 104)
+[Thu Sep  9 06:03:18 2004] [error] mod_ssl: SSL handshake interrupted by system [Hint: Stop button pressed in browser?!] (System error follows)
+[Thu Sep  9 06:03:18 2004] [error] System: Connection reset by peer (errno: 104)
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+cat: /var/named/named.pid: No such file or directory
+kill: usage: kill [-s sigspec | -n signum | -sigspec] [pid | job]... or kill -l [sigspec]
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+[Thu Sep  9 10:09:44 2004] [error] [client 70.240.3.131] File does not exist: /usr/local/webhostpanel/admin/htdocs/pch
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+rndc: connect failed: connection refused
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+cat: /var/named/named.pid: No such file or directory
+kill: usage: kill [-s sigspec | -n signum | -sigspec] [pid | job]... or kill -l [sigspec]
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+[Thu Sep  9 14:13:52 2004] [error] [client 70.240.3.138] File does not exist: /usr/local/webhostpanel/admin/htdocs/pch
+[Thu Sep  9 14:30:38 2004] [error] [client 70.240.3.138] File does not exist: /usr/local/webhostpanel/admin/htdocs/content.tar.gz
+[Thu Sep  9 14:20:32 2004] [warn] pid file /usr/local/webhostpanel/admin/logs/httpcpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Thu Sep  9 14:20:32 2004] [notice] Apache/1.3.31 (Unix) mod_ssl/2.8.19 OpenSSL/0.9.7a PHP/4.3.8 configured -- resuming normal operations
+[Thu Sep  9 14:20:32 2004] [notice] Accept mutex: sysvsem (Default: sysvsem)
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+rndc: connect failed: connection refused
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+sh: line 1: /etc/init.d/mysqld: No such file or directory
+cat: /var/named/named.pid: No such file or directory
+kill: usage: kill [-s sigspec | -n signum | -sigspec] [pid | job]... or kill -l [sigspec]
+cat: /var/named/named.pid: No such file or directory
+kill: usage: kill [-s sigspec | -n signum | -sigspec] [pid | job]... or kill -l [sigspec]

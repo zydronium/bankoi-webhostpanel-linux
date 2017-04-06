@@ -1,0 +1,17 @@
+uptime=`top -n0 | grep " up" | cut -d "," -f1 | cut -d " " -f5`
+cpu1=`top -n0 | grep " up" | cut -d "," -f3 | cut -d " " -f5`
+cpu5=`top -n0 | grep " up" | cut -d "," -f4 | cut -d " " -f2`
+cpu15=`top -n0 | grep " up" | cut -d "," -f5 | cut -d " " -f2`
+tota_mem=`top -n0 | grep "Mem: " | cut -d "K" -f1 | cut -d " " -f4`
+mem_used=`top -n0 | grep "Mem: " | cut -d "K" -f2 | cut -d " " -f4`
+mem_free=`top -n0 | grep "Mem: " | cut -d "K" -f3 | cut -d " " -f6`
+mem_share=`top -n0 | grep "Mem: " | cut -d "K" -f4 | cut -d " " -f7`
+
+echo System uptime=$uptime
+echo Last 1 min=$cpu1
+echo Last 5 min=$cpu5
+echo Last15 min=$cpu15
+echo Total Memory available=$tota_mem
+echo Used Memory=$mem_used
+echo Free Memory=$mem_free
+echo Shared Memory=$mem_share

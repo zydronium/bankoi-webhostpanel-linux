@@ -1,0 +1,41 @@
+Installation Bankoi's Webhostpanel for linux Beta 
+
+Disclaimer: This is a beta version. We are not responsible for any unusual things happen during installation or while using bankoi webhostpanel.
+
+
+Installation on Redhat 9
+Httpd 2.0.4x must be installed on server to use webhostpanel.
+
+1.	Uninstalle vsftpd rpm if installed.  
+2.	Install  the following  rpms (required to work webhostpanel)
+	a.	MySQL-devel-4.0.20-0.i386.rpm
+	b.	MySQL-client-4.0.20-0.i386.rpm
+	c.	MySQL-shared-4.0.20-0.i386.rpm
+	d.	MySQL-server-4.0.20-0.i386.rpm
+	e.	MySQL-shared-compat-4.0.20-0.i386.rpm
+	f.	proftpd-1.2.9-8.0.rh9.dag.i386.rpm 
+	g.	php-mysql-4.2.2-17.i386.rpm
+	h.	libmcrypt-2.5.7-1.dag.rh90.i386.rpm
+	i.	libmcrypt-devel-2.5.7-1.dag.rh90.i386.rpm
+3.	The password fro user root of mysql should be ""(blank password)
+4.	There must be bind DNS server installed on the server.
+5.	Install webhostpanel-0.1-beta.i386.rpm 
+6.	Install the following RPMs of cyrus-sasl
+	a.	cyrus-sasl-2.1.17-6.i386.rpm
+	b.	cyrus-sasl-devel-2.1.17-6.i386.rpm
+	c.	cyrus-sasl-md5-2.1.17-6.i386.rpm
+	d.	cyrus-sasl-plain-2.1.17-6.i386.rpm
+7.	Install the following rpm 0f postfix
+	a.	postfix-2.1.4-6.bankoi.i386.rpm
+8.	Install the RPM of webmail
+	a.	webmail-1.0.0-1.i386.rpm
+9.	Install the RPM 0f Courier-imap-3.0.7
+	a.	courier-imap-3.0.7.i386.rpm
+	b.	courier-imap-mysql-3.0.7.i386.rpm
+10.	start /etc/init.d/webhostpanel start
+11.	Now you can access webhostpanel as https://<serverip>:8443 and login with 
+	Username: admin  
+	Password: ddR51x67
+
+Visit http://www.webhost-panel.net
+Support Forums: http://forums.bankoi.com

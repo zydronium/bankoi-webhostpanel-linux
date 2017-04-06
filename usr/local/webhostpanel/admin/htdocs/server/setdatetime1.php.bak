@@ -1,0 +1,92 @@
+<?$ACCESS_LEVEL=1;?>
+<?include "../inc/connection.php"?>
+<?include "../inc/params.php"?>
+<?include "../inc/functions.php"?>
+<?include "../inc/security.php"?>
+
+<?
+	$tmonth = $_POST["tmonth"];
+	$tdate = $_POST["tdate"];
+	$thour = $_POST["thour"];
+	$tminute = $_POST["tminute"];
+	$tyear = $_POST["tyear"];
+	$tday= $_POST["tday"];
+	$tsec= $_POST["tsec"];
+	
+switch ($tmonth)
+{
+	case 1:
+		$month="Jan";
+	break;
+	case 2:
+		$month="Feb";
+	break;
+	case 3:
+		$month="Mar";
+	break;
+	case 4:
+		$month="Apr";
+	break;
+	case 5:
+		$month="May";
+	break;
+	case 6:
+		$month="Jun";
+	break;
+	case 7:
+		$month="Jul";
+	break;
+	case 8:
+		$month="Aug";
+	break;
+	case 9:
+		$month="Sep";
+	break;
+	case 10:
+		$month="Oct";
+	break;
+	case 11:
+		$month="Nov";
+	break;
+	case 12:
+		$month="Dec";
+	break;
+}
+
+switch ($tday)
+{
+	case 0:
+		$day="Sun";
+	case 1:
+		$day="Mon";
+	break;
+	case 2:
+		$day="Tue";
+	break;
+	case 3:
+		$day="Wed";
+	break;
+	case 4:
+		$day="Thu";
+	break;
+	case 5:
+		$day="Fri";
+	break;
+	case 6:
+		$day="Sat";
+	break;
+	case 7:
+		$day="Sun";
+	break;
+}
+
+	
+	$str = "\"" . $day ." " . $month . " "  . $tdate ." " . $thour .":". $tminute. ":" . $tsec . " " . $tyear . "\"";
+	//echo $str."<BR>";
+	//This function sets the date and the time of the system
+	SetDateTime($str);
+?>
+<script>
+	alert("System Date and Time set");
+	//window.location = "../server/server.php";
+</script>

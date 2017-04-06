@@ -1,0 +1,32 @@
+#! /bin/sh
+
+prefix="/usr/local/webhostpanel/admin"
+version="4.3.8"
+includedir="${prefix}/include/php"
+includes="-I$includedir -I$includedir/main -I$includedir/Zend"
+ldflags=" -L/usr/kerberos/lib"
+libs="-lcrypt   -lcrypt -lmcrypt -lltdl -lcurl -lz -lssl -lcrypto -lresolv -lm -ldl -lnsl  -lcurl -lssl -lcrypto -lgssapi_krb5 -lkrb5 -lk5crypto -lcom_err -lresolv -ldl -lz -lssl -lcrypto -lcrypt -lcrypt "
+if test '@TSRM_DIR@' != ''; then
+    includes="$includes -I$includedir/TSRM"
+fi
+extension_dir='/usr/local/webhostpanel/admin/lib/php/extensions/no-debug-non-zts-20020429'
+
+case "$1" in
+--prefix)
+	echo $prefix;;
+--includes)
+	echo $includes;;
+--ldflags)
+	echo $ldflags;;
+--libs)
+	echo $libs;;
+--extension-dir)
+	echo $extension_dir;;
+--version)
+	echo $version;;
+*)
+	echo "Usage: $0 [--prefix|--includes|--ldflags|--libs|--extension-dir|--version]"
+	exit 1;;
+esac
+
+exit 0

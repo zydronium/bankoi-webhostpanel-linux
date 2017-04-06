@@ -1,0 +1,2 @@
+#!/bin/bash
+ifconfig | grep "eth[0-100][^:]" | tr -s " " | cut -d " " -f1 > numether.txt

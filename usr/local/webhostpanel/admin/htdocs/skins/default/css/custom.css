@@ -1,0 +1,132 @@
+table.topHead {
+  background:  url(../images/top_bg.gif)  #ffffff;
+}
+
+/* ---------- navigation buttons --------- */
+
+input.navigationButton,
+input.navigationButton-current {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #555555;
+  background-color: #eeeeee;
+  background-image: url(../images/nav_bg.gif);
+  border: none;
+}
+
+input.navigationButton-current {
+  background-image: url(../images/nav_bg-current.gif);
+  color: #000000;
+}  
+
+input#bid-logout {
+  background-image: url(../images/nav_logout_bg.gif);
+}
+
+
+form, input, select, textarea {
+	font-family: Courier, mono;
+	font-size: 10pt;
+	color: #000000;
+}
+
+a.mailalias:link,
+a.mailalias:visited {
+  color: #555555; 
+}
+
+.errorfield {
+	color: #ff0000;
+}
+
+.requiredfield {
+	color: #FF0000;
+}
+
+.notdelitems {
+	color: #444444;
+}
+
+th {
+  background: #f9fafd url(../images/th_bg.gif) bottom repeat-x;
+  border-top: 1px solid #7f9db9;
+  border-right: 1px solid #b5b6c8;
+  border-left: 1px solid #b5b6c8;
+}
+
+th a:link, th a:visited, th a:active {
+  color: #333333;
+  text-decoration: none;
+}
+
+th a:hover {
+  color: #333333;
+  text-decoration: underline;
+}
+
+.evenrowbg {
+	background-color: #ecedef;
+}
+
+.oddrowbg {
+	background-color: #f6f6f6;
+}
+
+code {
+	font-family: Courier, mono;
+	font-size: 6pt;
+	color: #444444;
+}
+
+hr {
+    border: 0;
+    color: #000000;
+    background-color: #000000;
+    height: 1px;
+}
+
+/* ---------- common buttons --------- */
+
+input#bid-dns {
+  text-transform: uppercase;
+}
+
+input#bid-reboot {
+  background-image: url(../images/btn_restart_bg.gif);
+  font-weight: bold;
+  color: #006600;
+}
+
+input#bid-shutdown {
+  background-image: url(../images/btn_shutdown_bg.gif);
+  font-weight: bold;
+  color: #cc0000;
+}
+
+input#bid-search {
+  background-image: url(../images/btn_search_bg.gif);
+}
+
+/*input#bid-up-level {
+  background-image: url(../images/btn_uplevel_bg.gif);
+}*/
+
+input#bid-next-page, input#bid-prev-page {
+  background-image: url(../images/btn_paging_bg.gif);
+}
+
+/* ---------- gauge elements --------- */
+
+td.barOverFilled {
+  background: url(../icons/gauge/fill-over.gif);
+}
+
+td.barFilled {
+  background: url(../icons/gauge/fill.gif);
+}
+
+td.barEmpty {
+  background: url(../icons/gauge/empty.gif);
+}
